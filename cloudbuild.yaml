@@ -1,0 +1,16 @@
+steps:
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "functions",
+        "deploy",
+        "private",
+        "--runtime",
+        "nodejs8",
+        "--entry-point",
+        "pubsub",
+        "--trigger-topic",
+        "topic-1",
+      ]
